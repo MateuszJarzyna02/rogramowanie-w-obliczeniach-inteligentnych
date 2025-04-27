@@ -1,22 +1,22 @@
 import numpy as np
-#ddddddd
+
 def generate_horizontal_plane(width, length, num_points):
-    x = np.random.uniform(0, width, num_points)
-    y = np.random.uniform(0, length, num_points)
+    x = np.random.uniform(6, width+6, num_points)
+    y = np.random.uniform(4, length+4, num_points)
     z = np.zeros(num_points)
     return np.column_stack((x, y, z))
 
 def generate_vertical_plane(width, height, num_points):
     x = np.random.uniform(0, width, num_points)
     y = np.zeros(num_points)
-    z = np.random.uniform(0, height, num_points)
+    z = np.random.uniform(10, height+10, num_points)
     return np.column_stack((x, y, z))
 
 def generate_cylindrical_surface(radius, height, num_points):
     theta = np.random.uniform(0, 2 * np.pi, num_points)
     x = radius * np.cos(theta)
     y = radius * np.sin(theta)
-    z = np.random.uniform(0, height, num_points)
+    z = np.random.uniform(-1, height-1, num_points)
     return np.column_stack((x, y, z))
 
 def save_to_xyz(filename, points):
